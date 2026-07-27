@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExcelEdge — Your Excel Reference Toolkit</title>
+  <meta name="description" content="ExcelEdge is your go-to reference for Excel formulas, error codes, and keyboard shortcuts for Mac and Windows users."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Hero -->
+  <section class="home-hero">
+    <div class="container">
+      <div class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+          <path d="M8 12h14l8 12-8 12H8l8-12z" fill="white" opacity="0.9"/>
+          <path d="M26 12h14v6H32v4h8v4h-8v4h8v6H26z" fill="white" opacity="0.9"/>
+        </svg>
+      </div>
+      <h1><span class="brand-excel">Excel</span><span class="brand-edge">Edge</span></h1>
+      <p class="tagline">Your all-in-one reference for Excel formulas, error codes, and keyboard shortcuts. Built for real work, not textbooks.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section aria-label="Site statistics">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number" id="formulaCount">—</div>
+          <div class="stat-label">Formulas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Error Codes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="shortcutCount">—</div>
+          <div class="stat-label">Shortcuts</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Free</div>
+          <div class="stat-label">Always</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Cards -->
+  <main id="main-content">
+    <div class="container">
+      <div class="tools-grid">
+
+        <a href="formulas.html" class="tool-card" id="card-formulas" aria-label="Go to Formula Lookup">
+          <div class="tool-icon tool-icon-green" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16M4 10h12M4 14h8M7 18l3-3 3 3 4-6" stroke="#2dce89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2>Formula Lookup</h2>
+          <p>Search 70+ Excel formulas by task, name, or category. Get syntax, examples, and tips — right when you need them.</p>
+          <span class="tool-card-arrow">Explore formulas →</span>
+        </a>
+
+        <a href="errors.html" class="tool-card" id="card-errors" aria-label="Go to Error Lookup">
+          <div class="tool-icon tool-icon-red" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#e05252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2>Error Lookup</h2>
+          <p>Decode every Excel error — #DIV/0!, #VALUE!, #REF!, #SPILL!, and more. Find out what went wrong and how to fix it fast.</p>
+          <span class="tool-card-arrow" style="color:var(--error-red)">Decode errors →</span>
+        </a>
+
+        <a href="mac-shortcuts.html" class="tool-card" id="card-shortcuts" aria-label="Go to Mac Shortcuts">
+          <div class="tool-icon tool-icon-blue" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="6" width="20" height="13" rx="2" stroke="#7ea8f0" stroke-width="2"/>
+              <path d="M6 10h2M10 10h8M6 14h4M12 14h6" stroke="#7ea8f0" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2>Mac Shortcuts</h2>
+          <p>Using Excel on a Mac via Windows VPN? This page maps every shortcut — including the ones that don't exist on Mac keyboards.</p>
+          <span class="tool-card-arrow" style="color:#7ea8f0">View shortcuts →</span>
+        </a>
+
+        <div class="tool-card" id="card-coming-soon" style="opacity:0.5; cursor:default;" aria-label="More tools coming soon">
+          <div class="tool-icon tool-icon-purple" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#c77dff" stroke-width="2"/>
+              <path d="M12 8v4l3 3" stroke="#c77dff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2>More Coming Soon</h2>
+          <p>PivotTable tips, conditional formatting guides, data validation tricks, and more. This toolkit grows over time.</p>
+          <span class="tool-card-arrow" style="color:#c77dff">Stay tuned →</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — A free reference toolkit. Not affiliated with Microsoft.</p>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="js/nav.js"></script>
+<script src="js/formulas-data.js"></script>
+<script src="js/shortcuts-data.js"></script>
+<script>
+  document.getElementById('formulaCount').textContent = FORMULAS.length + '+';
+  document.getElementById('shortcutCount').textContent = SHORTCUTS.length + '+';
+</script>
+</body>
+</html>
