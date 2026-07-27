@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formula Lookup — ExcelEdge</title>
+  <meta name="description" content="Search and browse 70+ Excel formulas by task or category. Get syntax, examples, and usage tips instantly."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 10h12M4 14h8M7 18l3-3 3 3 4-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Formula <em>Lookup</em></h1>
+      <p>Search by task, formula name, or keyword. Find the right formula instantly.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+
+      <!-- Search -->
+      <div class="search-wrapper" role="search">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="formulaSearch"
+          class="search-input"
+          placeholder="Search formulas… e.g. 'count duplicates', 'XLOOKUP', 'date'"
+          aria-label="Search Excel formulas"
+          autocomplete="off"
+        />
+      </div>
+
+      <p class="search-count" id="formulaSearchCount" aria-live="polite"></p>
+
+      <!-- Category Filters -->
+      <div class="filter-pills" role="group" aria-label="Filter by category">
+        <button class="pill active" data-cat="all" id="pill-all">All</button>
+        <button class="pill" data-cat="math" id="pill-math">Math &amp; Counting</button>
+        <button class="pill" data-cat="lookup" id="pill-lookup">Lookup &amp; Reference</button>
+        <button class="pill" data-cat="text" id="pill-text">Text</button>
+        <button class="pill" data-cat="datetime" id="pill-datetime">Date &amp; Time</button>
+        <button class="pill" data-cat="logical" id="pill-logical">Logical</button>
+        <button class="pill" data-cat="statistical" id="pill-statistical">Statistical</button>
+        <button class="pill" data-cat="financial" id="pill-financial">Financial</button>
+        <button class="pill" data-cat="info" id="pill-info">Dynamic Arrays</button>
+      </div>
+
+      <!-- Results -->
+      <div class="results-grid" id="formulaGrid" aria-label="Formula results"></div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="formulaEmpty" role="status">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <path d="m21 21-4.35-4.35M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p>No formulas match your search. Try a different keyword.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/formulas-data.js"></script>
+<script>
+// ── Category label map ──────────────────────────────────────
+const CAT_LABELS = {
+  math:        'Math & Counting',
+  lookup:      'Lookup',
+  text:        'Text',
+  datetime:    'Date & Time',
+  logical:     'Logical',
+  statistical: 'Statistical',
+  financial:   'Financial',
+  info:        'Dynamic Arrays',
+};
+
+// ── Build a single formula card ─────────────────────────────
+function buildCard(f) {
+  const card = document.createElement('article');
+  card.className = 'formula-card';
+  card.setAttribute('aria-label', `${f.name} formula`);
+
+  card.innerHTML = `
+    <div class="formula-card-header">
+      <span class="formula-name">${f.name}()</span>
+      <span class="category-badge badge-${f.category}">${CAT_LABELS[f.category] || f.category}</span>
+    </div>
+    <p class="formula-desc">${f.description}</p>
+    <div>
+      <div class="formula-example-label">Syntax</div>
+      <pre class="formula-syntax">${escHtml(f.syntax)}</pre>
+    </div>
+    <div>
+      <div class="formula-example-label">Example</div>
+      <div class="formula-example">${escHtml(f.example)}</div>
+    </div>
+  `;
+  return card;
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Filter & render ─────────────────────────────────────────
+let activeCat = 'all';
+let searchQuery = '';
+
+function render() {
+  const grid = document.getElementById('formulaGrid');
+  const empty = document.getElementById('formulaEmpty');
+  const count = document.getElementById('formulaSearchCount');
+  grid.innerHTML = '';
+
+  const q = searchQuery.toLowerCase().trim();
+
+  const filtered = FORMULAS.filter(f => {
+    const catMatch = activeCat === 'all' || f.category === activeCat;
+    if (!catMatch) return false;
+    if (!q) return true;
+    return (
+      f.name.toLowerCase().includes(q) ||
+      f.description.toLowerCase().includes(q) ||
+      f.syntax.toLowerCase().includes(q) ||
+      (f.tags && f.tags.some(t => t.includes(q)))
+    );
+  });
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    count.textContent = '';
+  } else {
+    empty.style.display = 'none';
+    count.textContent = `Showing ${filtered.length} formula${filtered.length !== 1 ? 's' : ''}`;
+    filtered.forEach(f => grid.appendChild(buildCard(f)));
+  }
+}
+
+// ── Event listeners ─────────────────────────────────────────
+document.getElementById('formulaSearch').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  render();
+});
+
+document.querySelectorAll('.pill[data-cat]').forEach(pill => {
+  pill.addEventListener('click', () => {
+    activeCat = pill.dataset.cat;
+    document.querySelectorAll('.pill[data-cat]').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    render();
+  });
+});
+
+// Initial render
+render();
+document.getElementById('formulaSearchCount').textContent = `${FORMULAS.length} formulas available`;
+</script>
+</body>
+</html>
