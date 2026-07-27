@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Error Lookup — ExcelEdge</title>
+  <meta name="description" content="Decode every Excel error code — #DIV/0!, #N/A, #VALUE!, #REF!, #SPILL!, and more. Find causes and fixes instantly."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #7a1f1f, #c0392b);" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Error <em style="background: linear-gradient(135deg, #e05252, #ff8a80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Lookup</em></h1>
+      <p>Click any error below to understand what it means, why it happened, and how to fix it.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+
+      <!-- Quick jump pills -->
+      <div class="filter-pills" role="navigation" aria-label="Jump to error">
+        <a class="pill" href="#error-div0" id="jump-div0">#DIV/0!</a>
+        <a class="pill" href="#error-na" id="jump-na">#N/A</a>
+        <a class="pill" href="#error-value" id="jump-value">#VALUE!</a>
+        <a class="pill" href="#error-ref" id="jump-ref">#REF!</a>
+        <a class="pill" href="#error-name" id="jump-name">#NAME?</a>
+        <a class="pill" href="#error-num" id="jump-num">#NUM!</a>
+        <a class="pill" href="#error-null" id="jump-null">#NULL!</a>
+        <a class="pill" href="#error-spill" id="jump-spill">#SPILL!</a>
+        <a class="pill" href="#error-calc" id="jump-calc">#CALC!</a>
+        <a class="pill" href="#error-gd" id="jump-gd">#GETTING_DATA</a>
+      </div>
+
+      <!-- Error Cards (rendered by JS) -->
+      <div class="errors-grid" id="errorsGrid" aria-label="Excel error codes"></div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/errors-data.js"></script>
+<script>
+// ID map for anchor links
+const ERROR_ID_MAP = {
+  '#DIV/0!':       'error-div0',
+  '#N/A':          'error-na',
+  '#VALUE!':       'error-value',
+  '#REF!':         'error-ref',
+  '#NAME?':        'error-name',
+  '#NUM!':         'error-num',
+  '#NULL!':        'error-null',
+  '#SPILL!':       'error-spill',
+  '#CALC!':        'error-calc',
+  '#GETTING_DATA': 'error-gd',
+};
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function buildErrorCard(e) {
+  const id = ERROR_ID_MAP[e.code] || e.code.replace(/[^a-z0-9]/gi, '');
+
+  const causesHtml = e.causes
+    .map(c => `<li>${escHtml(c)}</li>`)
+    .join('');
+
+  const fixesHtml = e.fixes
+    .map(f => `<li>${escHtml(f)}</li>`)
+    .join('');
+
+  const card = document.createElement('article');
+  card.className = 'error-card';
+  card.id = id;
+
+  card.innerHTML = `
+    <div class="error-card-header">
+      <span class="error-code">${escHtml(e.code)}</span>
+      <span class="error-title">${escHtml(e.title)}</span>
+    </div>
+    <div class="error-card-body">
+      <div>
+        <div class="error-section-label">What it means</div>
+        <p class="error-text">${escHtml(e.meaning)}</p>
+      </div>
+      <div>
+        <div class="error-section-label">Common causes</div>
+        <ul class="causes-list">${causesHtml}</ul>
+      </div>
+      <div>
+        <div class="error-section-label">How to fix it</div>
+        <ul class="causes-list" style="--bullet-color: var(--accent)">${fixesHtml}</ul>
+      </div>
+      <div>
+        <div class="error-section-label">Quick fix formula</div>
+        <div class="fix-formula">${escHtml(e.fix_formula)}</div>
+      </div>
+    </div>
+  `;
+
+  // Style fix-list bullets green
+  card.querySelectorAll('.causes-list:last-of-type li::before').forEach(el => {
+    el.style.color = 'var(--accent-light)';
+  });
+
+  return card;
+}
+
+// Override the causes-list bullet for fix sections
+const style = document.createElement('style');
+style.textContent = `
+  .error-card-body div:nth-child(3) .causes-list li::before { color: var(--accent-light) !important; }
+  .error-card-body div:nth-child(4) .causes-list li::before { color: var(--accent-light) !important; }
+`;
+document.head.appendChild(style);
+
+const grid = document.getElementById('errorsGrid');
+ERRORS.forEach(e => grid.appendChild(buildErrorCard(e)));
+</script>
+</body>
+</html>
