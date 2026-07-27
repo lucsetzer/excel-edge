@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mac Shortcuts — ExcelEdge</title>
+  <meta name="description" content="Excel keyboard shortcuts for Mac users on Windows VPN. Side-by-side Mac vs Windows comparison with notes on key differences."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    /* Fix-list bullet color for fixes vs causes */
+    .fix-list li::before { color: var(--accent-light) !important; }
+
+    .mac-tip {
+      background: rgba(33,163,102,0.08);
+      border: 1px solid rgba(33,163,102,0.2);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .mac-tip strong { color: var(--accent-light); }
+
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .tip-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .tip-card-title {
+      font-weight: 600;
+      color: var(--warn-yellow);
+      margin-bottom: 0.35rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tip-card p { color: var(--text-secondary); line-height: 1.5; }
+
+    .na-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a3060, #3a5cb0);" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="5" width="20" height="14" rx="2" stroke="white" stroke-width="2"/>
+          <path d="M6 9h2M10 9h8M6 13h4M12 13h6M6 17h12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1>Mac <em style="background: linear-gradient(135deg, #5b8ef0, #90c0ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Shortcuts</em></h1>
+      <p>Excel keyboard shortcuts for Mac users — including what's different when working via Windows VPN.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+
+      <!-- Key tips banner -->
+      <div class="mac-tip" role="note">
+        <strong>💡 Mac on Windows VPN?</strong> The biggest gotchas: (1) <strong>F-keys need Fn</strong> on Mac — e.g., F4 for absolute refs becomes <kbd>Fn</kbd>+<kbd>F4</kbd>. (2) The <strong>Alt key Ribbon navigation</strong> from Windows doesn't exist on Mac — use the menu bar instead. (3) <strong>Home/End keys</strong> on Mac use <kbd>Fn</kbd>+Arrow. (4) Many shortcuts swap <strong>Ctrl → ⌘ (Command)</strong>.
+      </div>
+
+      <!-- Key Tips Cards -->
+      <div class="tip-grid" aria-label="Mac keyboard tips">
+        <div class="tip-card">
+          <div class="tip-card-title">⌘ vs Ctrl</div>
+          <p>Most Windows <kbd class="win-key">Ctrl</kbd> shortcuts become <kbd class="mac-key">⌘</kbd> on Mac. E.g., Ctrl+C → ⌘+C.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-card-title">F-Key Mystery</div>
+          <p>Mac F-keys control brightness/volume by default. Hold <kbd class="mac-key">Fn</kbd> to send F-keys to Excel. Or change it in System Settings → Keyboard.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-card-title">No Alt Ribbon Nav</div>
+          <p>Windows Alt key shows Ribbon shortcut letters. This <strong>doesn't exist on Mac</strong>. Use the top menu bar instead.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-card-title">Home / End Keys</div>
+          <p>Most Mac keyboards don't have Home/End. Use <kbd class="mac-key">Fn</kbd>+<kbd class="mac-key">←</kbd> and <kbd class="mac-key">Fn</kbd>+<kbd class="mac-key">→</kbd>.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-card-title">Delete vs Backspace</div>
+          <p>Mac <kbd class="mac-key">Delete</kbd> = Windows Backspace (deletes backward). For forward delete: <kbd class="mac-key">Fn</kbd>+<kbd class="mac-key">Delete</kbd>.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-card-title">AutoSum Gotcha</div>
+          <p>Windows <kbd class="win-key">Alt</kbd>+<kbd class="win-key">=</kbd> doesn't work on Mac. Use <kbd class="mac-key">⌘</kbd>+<kbd class="mac-key">Shift</kbd>+<kbd class="mac-key">T</kbd> instead.</p>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrapper" role="search">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="shortcutSearch"
+          class="search-input"
+          placeholder="Search shortcuts… e.g. 'copy', 'save as', 'absolute reference'"
+          aria-label="Search keyboard shortcuts"
+          autocomplete="off"
+        />
+      </div>
+
+      <p class="search-count" id="shortcutSearchCount" aria-live="polite"></p>
+
+      <!-- Category Filters -->
+      <div class="filter-pills" role="group" aria-label="Filter shortcuts by category">
+        <button class="pill active" data-scat="all" id="scat-all">All</button>
+        <button class="pill" data-scat="Navigation" id="scat-nav">Navigation</button>
+        <button class="pill" data-scat="Selection" id="scat-sel">Selection</button>
+        <button class="pill" data-scat="Editing" id="scat-edit">Editing</button>
+        <button class="pill" data-scat="Formatting" id="scat-fmt">Formatting</button>
+        <button class="pill" data-scat="Formulas" id="scat-form">Formulas</button>
+        <button class="pill" data-scat="File & Workbook" id="scat-file">File &amp; Workbook</button>
+        <button class="pill" data-scat="VPN & Function Key Tips" id="scat-vpn">VPN &amp; F-Key Tips</button>
+      </div>
+
+      <!-- Tables rendered per category -->
+      <div id="shortcutsContainer" aria-label="Keyboard shortcuts tables"></div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="shortcutEmpty" role="status">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p>No shortcuts match. Try a different search term.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shortcuts-data.js"></script>
+<script>
+// Build key badge HTML from array like ["Ctrl","C"]
+function buildKeys(combo, type) {
+  if (!combo || combo.length === 0) return '<span class="na-label">N/A</span>';
+  if (combo[0] === 'N/A') return '<span class="na-label">Not available</span>';
+
+  return '<span class="keys">' + combo.map((k, i) => {
+    const cls = type === 'mac' ? 'mac-key' : 'win-key';
+    return (i > 0 ? '<span class="plus-sign">+</span>' : '') +
+      `<kbd class="${cls}">${k}</kbd>`;
+  }).join('') + '</span>';
+}
+
+// Build a row of alternatives (multiple combos)
+function buildKeyCombos(combos, type) {
+  if (!combos || combos.length === 0) return '';
+  return combos
+    .map(combo => buildKeys(combo, type))
+    .join('<span class="plus-sign" style="margin:0 4px;color:var(--text-muted)">or</span>');
+}
+
+function escHtml(str) {
+  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderShortcuts(data) {
+  const container = document.getElementById('shortcutsContainer');
+  const empty = document.getElementById('shortcutEmpty');
+  const count = document.getElementById('shortcutSearchCount');
+  container.innerHTML = '';
+
+  if (data.length === 0) {
+    empty.style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+
+  empty.style.display = 'none';
+
+  // Group by category
+  const groups = {};
+  data.forEach(s => {
+    if (!groups[s.category]) groups[s.category] = [];
+    groups[s.category].push(s);
+  });
+
+  let total = 0;
+
+  Object.entries(groups).forEach(([cat, items]) => {
+    total += items.length;
+
+    const section = document.createElement('section');
+    section.className = 'shortcuts-section';
+    section.setAttribute('aria-labelledby', `cat-${cat.replace(/\W/g,'_')}`);
+
+    const title = document.createElement('h2');
+    title.className = 'shortcuts-section-title';
+    title.id = `cat-${cat.replace(/\W/g,'_')}`;
+    title.textContent = cat;
+    section.appendChild(title);
+
+    const table = document.createElement('table');
+    table.className = 'shortcuts-table';
+    table.setAttribute('role', 'table');
+
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th scope="col" style="width:30%">Task</th>
+          <th scope="col" style="width:22%">Windows</th>
+          <th scope="col" style="width:22%">Mac</th>
+          <th scope="col">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-${cat.replace(/\W/g,'_')}"></tbody>
+    `;
+
+    const tbody = table.querySelector('tbody');
+    items.forEach(s => {
+      const tr = document.createElement('tr');
+      const noteClass = s.notes && (s.notes.includes("doesn't") || s.notes.includes("not available") || s.notes.includes("NOT")) 
+        ? 'warn-note' : 'note-text';
+      tr.innerHTML = `
+        <td class="task-label">${escHtml(s.task)}</td>
+        <td>${buildKeyCombos(s.win, 'win')}</td>
+        <td>${buildKeyCombos(s.mac, 'mac')}</td>
+        <td><span class="${noteClass}">${escHtml(s.notes)}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    section.appendChild(table);
+    container.appendChild(section);
+  });
+
+  count.textContent = `Showing ${total} shortcut${total !== 1 ? 's' : ''}`;
+}
+
+// ── Filter state ─────────────────────────────────────────────
+let activeSCat = 'all';
+let searchQuery = '';
+
+function filter() {
+  const q = searchQuery.toLowerCase().trim();
+  return SHORTCUTS.filter(s => {
+    const catMatch = activeSCat === 'all' || s.category === activeSCat;
+    if (!catMatch) return false;
+    if (!q) return true;
+    return (
+      s.task.toLowerCase().includes(q) ||
+      (s.notes || '').toLowerCase().includes(q) ||
+      s.win.flat().some(k => k.toLowerCase().includes(q)) ||
+      s.mac.flat().some(k => k.toLowerCase().includes(q))
+    );
+  });
+}
+
+function update() {
+  renderShortcuts(filter());
+}
+
+document.getElementById('shortcutSearch').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  update();
+});
+
+document.querySelectorAll('.pill[data-scat]').forEach(pill => {
+  pill.addEventListener('click', () => {
+    activeSCat = pill.dataset.scat;
+    document.querySelectorAll('.pill[data-scat]').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    update();
+  });
+});
+
+// Initial render
+update();
+document.getElementById('shortcutSearchCount').textContent = `${SHORTCUTS.length} shortcuts available`;
+</script>
+</body>
+</html>
