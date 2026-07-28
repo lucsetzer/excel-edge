@@ -44,7 +44,7 @@ excel-edge/
 ├── errors.html             ← Error lookup
 ├── mac-shortcuts.html      ← Mac keyboard shortcuts
 ├── css/
-│   └── styles.css          ← Shared design system (edit here for global style changes)
+│   └── style.css          ← Shared design system (edit here for global style changes)
 ├── js/
 │   ├── nav.js              ← Shared navigation (edit here to add/remove nav links)
 │   ├── formulas-data.js    ← All formula data
