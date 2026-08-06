@@ -102,3 +102,4 @@ Add an object to the `SHORTCUTS` array:
 *Not affiliated with Microsoft Corporation.*
 
 
+
