@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solver — ExcelEdge</title>
+  <meta name="description" content="Learn how to use Excel's Solver add-in for optimization, resource allocation, and advanced what-if analysis."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a3a2a, #3a9a60);" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4"></path><path d="M12 16V8"></path></svg>
+      </div>
+      <h1>Solver</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-advanced">Advanced</span>
+        <span class="guide-meta-time">⏱ 8 min read</span>
+      </div>
+      <p>Find optimal values for formula cells by adjusting other cells subject to constraints you define.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Solver is an Excel add-in that finds the optimal value for a formula cell by adjusting other cells — subject to constraints you define. It's used for resource allocation, scheduling, portfolio optimization, pricing, and any problem where you want to maximize or minimize an outcome within limits.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Solver must be enabled. Go to <span class="menu-path">File → Options → Add-ins → Manage: Excel Add-ins → Go</span> → check <strong>Solver Add-in</strong> → OK.</li>
+            <li>On Mac: <span class="menu-path">Tools → Excel Add-ins</span> → check <strong>Solver</strong> → OK.</li>
+            <li>Then find Solver on the Data tab.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Set up your model</div>
+              <div class="step-desc">
+                Create a spreadsheet with: (a) Decision variable cells (the cells Solver will change — e.g., how many of each product to make), (b) Constraint cells (limits — e.g., available hours, budget), (c) Objective cell (the formula to optimize — e.g., <code style="font-family:var(--font-mono);color:var(--accent-light);">=SUMPRODUCT(B2:B5, C2:C5)</code> for total profit).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Open Solver</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Data → Solver</span>.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Set the Objective</div>
+              <div class="step-desc">
+                In 'Set Objective', click the cell containing your target formula (the value to maximize, minimize, or hit a specific target). Select Max, Min, or Value Of.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Set the variable cells</div>
+              <div class="step-desc">
+                In 'By Changing Variable Cells', select the decision variable cells (the ones Solver should adjust). These must be referenced by the objective formula.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Add constraints</div>
+              <div class="step-desc">
+                Click Add. Set a cell reference (e.g., B2), choose a relationship (&lt;=, &gt;=, =, int, bin), and enter the constraint value or cell. Common constraints: decision variables &gt;= 0, total resources &lt;= available.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Choose a solving method</div>
+              <div class="step-desc">
+                GRG Nonlinear: for smooth nonlinear problems. Simplex LP: for linear problems (most common for resource allocation). Evolutionary: for non-smooth problems. For most business problems, use Simplex LP.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Run Solver</div>
+              <div class="step-desc">
+                Click <strong>Solve</strong>. Solver iterates to find the optimal solution. If successful, choose 'Keep Solver Solution' and optionally save a Scenario.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Interpret results</div>
+              <div class="step-desc">
+                If Solver found a solution, your variable cells now show the optimal values and the objective cell shows the optimal result. If not, Solver reports why (infeasible, unbounded, etc.).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Generate reports</div>
+              <div class="step-desc">
+                In the Solver Results dialog, select Answer, Sensitivity, or Limits reports. The Answer Report shows original vs. final values and which constraints are binding.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Integer and Binary Constraints</strong><br/>
+            Mark variables with 'int' when quantities must be whole numbers (e.g., number of employees). Use binary ('bin') for yes/no decisions (1=yes, 0=no).
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Non-negativity</strong><br/>
+            Always add non-negativity constraints (variable cells &gt;= 0) unless negative values make sense for your problem.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Sensitivity Report</strong><br/>
+            Use the Sensitivity Report to see how much the optimal solution changes if constraints shift (shadow prices). If Solver fails, ensure all cells are numeric.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Forgetting non-negativity</div>
+            <div class="mistake-desc">Solver assigns negative values to components like production amounts.</div>
+            <div class="mistake-fix">Fix: add constraint: variable cells &gt;= 0.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Objective cell not linked</div>
+            <div class="mistake-desc">Solver changes variables but the objective result doesn't change.</div>
+            <div class="mistake-fix">Fix: verify formulas properly reference the variable cells.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Too many constraints</div>
+            <div class="mistake-desc">Problem becomes infeasible and Solver finds no solution.</div>
+            <div class="mistake-fix">Fix: relax one constraint at a time to find the conflict.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Wrong solving method</div>
+            <div class="mistake-desc">Using GRG Nonlinear for a linear model makes it slower and may miss the global optimum.</div>
+            <div class="mistake-fix">Fix: use Simplex LP for purely linear models.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Enable Solver</span>
+              <span class="quick-ref-value"><span class="menu-path">File → Options → Add-ins → Excel Add-ins → Solver Add-in</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Mac Enable</span>
+              <span class="quick-ref-value"><span class="menu-path">Tools → Excel Add-ins → Solver</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Open</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Solver</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Solving methods</span>
+              <span class="quick-ref-value">Simplex LP (linear), GRG Nonlinear, Evolutionary</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Constraint types</span>
+              <span class="quick-ref-value">&lt;=, &gt;=, =, int (integer), bin (binary)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Non-negativity</span>
+              <span class="quick-ref-value">Add constraint: B2:B5 &gt;= 0</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Reports</span>
+              <span class="quick-ref-value">Answer (results), Sensitivity (shadow prices), Limits (ranges)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="what-if-analysis.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🎯</span>
+            <div class="related-card-text">
+              <span class="related-card-name">What-If Analysis</span>
+              <span class="related-card-diff">Advanced · 8 min</span>
+            </div>
+          </a>
+          <a href="macros.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🤖</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Macros &amp; VBA</span>
+              <span class="related-card-diff">Advanced · 10 min</span>
+            </div>
+          </a>
+          <a href="charts.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📈</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Charts</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
