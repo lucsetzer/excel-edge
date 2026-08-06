@@ -1,5 +1,5 @@
 /* ─── Guide Page Styles ─────────────────────────────────────
-   Extends css/styles.css — always load styles.css first.
+   Extends css/style.css — always load style.css first.
    ──────────────────────────────────────────────────────────── */
 /* ── Difficulty Badges ─────────────────────────────────────── */
 .badge-beginner     { background: rgba(33,163,102,0.15); color: #2dce89; border: 1px solid rgba(33,163,102,0.3); }
