@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VLOOKUP vs XLOOKUP — ExcelEdge</title>
+  <meta name="description" content="Compare VLOOKUP and XLOOKUP formulas in Excel and learn when to use each for your data needs."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a3a5c, #4a90d9);" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <h1>VLOOKUP vs XLOOKUP</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-beginner">Beginner</span>
+        <span class="guide-meta-time">⏱ 6 min read</span>
+      </div>
+      <p>Learn the difference between Excel's classic lookup function and its modern, powerful replacement.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">VLOOKUP has been Excel's go-to lookup formula for 30+ years, but it has significant limitations. XLOOKUP (available in Microsoft 365 and Excel 2021+) fixes all of them. This guide walks you through both so you know which to use — and when.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>You need Excel 365 or Excel 2021 or newer to use XLOOKUP.</li>
+            <li>Basic knowledge of Excel formulas is recommended.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Understand VLOOKUP</div>
+              <div class="step-desc">
+                VLOOKUP searches the <strong>FIRST</strong> column of a table and returns a value from a column to the RIGHT. Syntax: <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>. Always use FALSE for exact match.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Build a VLOOKUP</div>
+              <div class="step-desc">
+                <strong>Click</strong> your result cell. Type <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(</code> then: click the lookup cell (e.g. A2), add a comma, select the lookup table (e.g. D:F), add a comma, type the column number to return (e.g. 2 for the 2nd column), add a comma, type FALSE, close the bracket. Example: <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, D:F, 2, FALSE)</code>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Understand VLOOKUP's limits</div>
+              <div class="step-desc">
+                (1) Can only look LEFT to RIGHT. (2) Column number breaks if you insert columns. (3) Returns first match only. (4) Slower on large datasets.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Understand XLOOKUP</div>
+              <div class="step-desc">
+                XLOOKUP is more flexible: it looks in any direction, returns entire arrays, handles errors natively, and uses column references (not index numbers). Syntax: <code style="font-family:var(--font-mono);color:var(--accent-light);">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</code>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Build an XLOOKUP</div>
+              <div class="step-desc">
+                Type <code style="font-family:var(--font-mono);color:var(--accent-light);">=XLOOKUP(</code> then: click the lookup cell (e.g. A2), add a comma, select just the lookup COLUMN (e.g. D:D), add a comma, select the return COLUMN (e.g. E:E), add a comma, type "Not found" for the error fallback. Example: <code style="font-family:var(--font-mono);color:var(--accent-light);">=XLOOKUP(A2, D:D, E:E, "Not found")</code>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Return multiple columns with XLOOKUP</div>
+              <div class="step-desc">
+                <strong>Select</strong> the return_array as multiple columns (e.g. E:G) and XLOOKUP will spill all three columns automatically. VLOOKUP cannot do this.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Wrap VLOOKUP with IFERROR</div>
+              <div class="step-desc">
+                Since VLOOKUP doesn't have a built-in not-found message, wrap it: <code style="font-family:var(--font-mono);color:var(--accent-light);">=IFERROR(VLOOKUP(A2, D:F, 2, FALSE), "Not found")</code>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">When to still use VLOOKUP</div>
+              <div class="step-desc">
+                Use VLOOKUP when sharing files with colleagues who have Excel 2019 or earlier (XLOOKUP won't work for them).
+              </div>
+            </div>
+          </li>
+        </ol>
+        <div class="comparison-table" style="margin-top:2rem;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--accent-light);">
+                <th style="padding: 0.5rem; text-align: left;">Feature</th>
+                <th style="padding: 0.5rem; text-align: left;">VLOOKUP</th>
+                <th style="padding: 0.5rem; text-align: left;">XLOOKUP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.5rem;">Direction</td>
+                <td style="padding: 0.5rem;">Left to right only</td>
+                <td style="padding: 0.5rem;">Any direction</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.5rem;">Error handling</td>
+                <td style="padding: 0.5rem;">Needs IFERROR wrapper</td>
+                <td style="padding: 0.5rem;">Built-in 4th argument</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.5rem;">Column reference</td>
+                <td style="padding: 0.5rem;">Number (fragile)</td>
+                <td style="padding: 0.5rem;">Direct range (robust)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.5rem;">Multiple columns</td>
+                <td style="padding: 0.5rem;">One at a time</td>
+                <td style="padding: 0.5rem;">Returns array</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.5rem;">Compatibility</td>
+                <td style="padding: 0.5rem;">All versions</td>
+                <td style="padding: 0.5rem;">365 / Excel 2021+</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem;">Speed</td>
+                <td style="padding: 0.5rem;">Slower</td>
+                <td style="padding: 0.5rem;">Faster</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Exact Matches</strong>
+            Always use FALSE (exact match) in VLOOKUP unless you're doing range lookups on sorted data.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>XLOOKUP Match Mode</strong>
+            XLOOKUP's 5th argument match_mode: 0=exact, -1=exact or next smaller, 1=exact or next larger, 2=wildcard.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>XLOOKUP Search Mode</strong>
+            XLOOKUP's 6th argument search_mode: 1=first to last, -1=last to first (finds LAST match!).
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>INDEX+MATCH</strong>
+            Use INDEX+MATCH as a VLOOKUP alternative if you can't use XLOOKUP.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Look Upwards</strong>
+            Use XLOOKUP to look UP (not just right) — e.g., find a row header from a value in the middle of a dataset.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Using TRUE in VLOOKUP</div>
+            <div class="mistake-desc">Using TRUE (approximate match) when you need an exact match often returns wrong results.</div>
+            <div class="mistake-fix">Always use FALSE for exact matches.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">VLOOKUP Column Index Broken</div>
+            <div class="mistake-desc">VLOOKUP col_index breaks if you insert a column in the table, returning wrong data.</div>
+            <div class="mistake-fix">Switch to XLOOKUP or INDEX+MATCH.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">XLOOKUP Returns #N/A</div>
+            <div class="mistake-desc">The lookup value was not found in the range.</div>
+            <div class="mistake-fix">Add the 4th argument to XLOOKUP: "Not found".</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Forgetting to Lock Ranges</div>
+            <div class="mistake-desc">Reference shifts when copying the formula down, leading to missed matches.</div>
+            <div class="mistake-fix">Use absolute refs like <code style="font-family:var(--font-mono);color:var(--accent-light);">D$1:$F$100</code> or full columns <code style="font-family:var(--font-mono);color:var(--accent-light);">D:F</code>.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">VLOOKUP</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, D:F, 2, FALSE)</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">VLOOKUP safe</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=IFERROR(VLOOKUP(A2, D:F, 2, FALSE), "Not found")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">XLOOKUP</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=XLOOKUP(A2, D:D, E:E, "Not found")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">XLOOKUP multi-col</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=XLOOKUP(A2, D:D, E:G, "Not found")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">INDEX+MATCH alt</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=INDEX(E:E, MATCH(A2, D:D, 0))</code></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="dynamic-arrays.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">⚡</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Dynamic Arrays</span>
+              <span class="related-card-diff">Intermediate · 7 min</span>
+            </div>
+          </a>
+          <a href="named-ranges.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🏷️</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Named Ranges</span>
+              <span class="related-card-diff">Intermediate · 5 min</span>
+            </div>
+          </a>
+          <a href="pivot-tables.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📊</span>
+            <div class="related-card-text">
+              <span class="related-card-name">PivotTables</span>
+              <span class="related-card-diff">Intermediate · 8 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
