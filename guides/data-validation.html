@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Validation & Drop-down Lists — ExcelEdge</title>
+  <meta name="description" content="Learn how to restrict cell input and create drop-down lists in Excel."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a4a2e, #2daa60);" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+      </div>
+      <h1>Data Validation & Drop-down Lists</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-beginner">Beginner</span>
+        <span class="guide-meta-time">⏱ 5 min read</span>
+      </div>
+      <p>Learn how to restrict cell input and create drop-down lists to ensure data accuracy in Excel.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Data validation ensures data accuracy by restricting what users can type into a cell. It is essential for creating robust, error-free spreadsheets and standardized drop-down lists.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Understand how to select cell ranges.</li>
+            <li>Prepare the list of valid items you want to allow.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Select the cell(s)</div>
+              <div class="step-desc">
+                <strong>Select</strong> the cell or range where you want to restrict input.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Open Data Validation</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Data → Data Validation → Data Validation...</span>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Set the validation type</div>
+              <div class="step-desc">
+                In the <strong>Allow</strong> dropdown choose: List (dropdown), Whole Number, Decimal, Date, Time, Text Length, or Custom (formula-based).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Create a drop-down list</div>
+              <div class="step-desc">
+                Choose Allow: <strong>List</strong>. In the Source box either type values separated by commas (Yes,No,Pending) OR select a range (=$F$1:$F$5). Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Set up a named range as source</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Formulas → Define Name</span>, name your list range (e.g. StatusList), then use =StatusList as the Source. This keeps the validation tidy.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Add an Input Message</div>
+              <div class="step-desc">
+                Go to the <strong>Input Message</strong> tab. Check 'Show input message when cell is selected', add a Title and Message. This shows a tooltip when users click the cell.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Set an Error Alert</div>
+              <div class="step-desc">
+                Go to the <strong>Error Alert</strong> tab. Choose Style (Stop blocks invalid input, Warning allows it with a prompt, Information just shows a message). Add a custom title and message.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Apply to a whole column</div>
+              <div class="step-desc">
+                Select the entire column (click column letter), then apply validation. Only cells you've formatted will enforce it — header rows are not affected.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Find cells with validation</div>
+              <div class="step-desc">
+                Use <span class="menu-path">Home → Find & Select → Data Validation</span> to highlight all validated cells in the sheet.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Hidden Reference Sheet</strong>
+            Put your list items on a separate 'Reference' or 'Lists' sheet to keep them organized and hidden.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Named Range Power</strong>
+            Use a named range as the source so the dropdown auto-updates when you add items to the list.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Custom Formulas</strong>
+            Use Custom validation with a formula for advanced rules: e.g., <code style="font-family:var(--font-mono);color:var(--accent-light);">=AND(A1>0, A1<1000)</code> to restrict to positive numbers under 1000. Use <code style="font-family:var(--font-mono);color:var(--accent-light);">=ISTEXT(A1)</code> to ensure only text is entered.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Circle Invalid Data</strong>
+            Use <span class="menu-path">Data → Data Validation → Circle Invalid Data</span> to find cells that break the rules.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Typing values in Source without commas</div>
+            <div class="mistake-desc">All values are merged into a single option.</div>
+            <div class="mistake-fix">Fix: separate with commas: Yes,No,Pending</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Source list on a different sheet without named range</div>
+            <div class="mistake-desc">Validation breaks in older versions of Excel.</div>
+            <div class="mistake-fix">Fix: use a named range instead of direct sheet reference.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Not locking the source range</div>
+            <div class="mistake-desc">Shifts when copying validation to other cells.</div>
+            <div class="mistake-fix">Fix: use absolute refs $F$1:$F$5.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Warning style alert</div>
+            <div class="mistake-desc">Users can still enter invalid data.</div>
+            <div class="mistake-fix">Fix: use Stop style if you want to completely block input.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Open</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Data Validation → Data Validation</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">List source (typed)</span>
+              <span class="quick-ref-value">Yes,No,Pending</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">List source (range)</span>
+              <span class="quick-ref-value">=$F$1:$F$5</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">List source (named range)</span>
+              <span class="quick-ref-value">=StatusList</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Find validated cells</span>
+              <span class="quick-ref-value"><span class="menu-path">Home → Find & Select → Data Validation</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Circle invalid</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Data Validation → Circle Invalid Data</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Clear validation</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Data Validation → Clear All</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="conditional-formatting.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🎨</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Conditional Formatting</span>
+              <span class="related-card-diff">Beginner · 5 min</span>
+            </div>
+          </a>
+          <a href="named-ranges.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🏷️</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Named Ranges</span>
+              <span class="related-card-diff">Intermediate · 5 min</span>
+            </div>
+          </a>
+          <a href="protect-sheets.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🔒</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Protecting Sheets</span>
+              <span class="related-card-diff">Beginner · 4 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
