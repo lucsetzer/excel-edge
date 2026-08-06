@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How-To Guides — ExcelEdge</title>
+  <meta name="description" content="Step-by-step guides for Excel's most challenging features — PivotTables, Conditional Formatting, VLOOKUP, Power Query, Macros, and more."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #5a3fa0, #9b72f0);" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>How-To <em style="background:linear-gradient(135deg,#9b72f0,#c9a7ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Guides</em></h1>
+      <p>Step-by-step walkthroughs for Excel's most powerful — and most confusing — features.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="container">
+      <!-- Search -->
+      <div class="search-wrapper" role="search">
+        <span class="search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <input type="search" id="guideSearch" class="search-input"
+          placeholder="Search guides… e.g. 'pivot', 'lookup', 'macro'"
+          aria-label="Search how-to guides" autocomplete="off"/>
+      </div>
+      <!-- Difficulty filter -->
+      <div class="filter-pills" role="group" aria-label="Filter by difficulty">
+        <button class="pill active" data-diff="all" id="diff-all">All</button>
+        <button class="pill" data-diff="beginner" id="diff-beginner">🟢 Beginner</button>
+        <button class="pill" data-diff="intermediate" id="diff-intermediate">🟡 Intermediate</button>
+        <button class="pill" data-diff="advanced" id="diff-advanced">🔴 Advanced</button>
+      </div>
+      <p class="search-count" id="guideCount" aria-live="polite"></p>
+      <!-- Guide Cards -->
+      <div class="guides-grid" id="guidesGrid" aria-label="How-to guide list"></div>
+      <!-- Empty state -->
+      <div class="empty-state" id="guideEmpty" role="status">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p>No guides match. Try a different search or filter.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="js/nav.js"></script>
+<script src="js/guides-data.js"></script>
+<script>
+const DIFF_LABELS = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
+function buildGuideCard(g) {
+  const card = document.createElement('a');
+  card.href = g.url;
+  card.className = 'guide-card';
+  card.setAttribute('aria-label', `${g.title} guide — ${DIFF_LABELS[g.difficulty]}, ${g.minutes} min`);
+  card.innerHTML = `
+    <div class="guide-card-header">
+      <span class="guide-card-emoji" aria-hidden="true">${g.emoji}</span>
+      <span class="guide-meta-badge category-badge badge-${g.difficulty}">${DIFF_LABELS[g.difficulty]}</span>
+    </div>
+    <div class="guide-card-title">${g.title}</div>
+    <p class="guide-card-desc">${g.description}</p>
+    <div class="guide-card-footer">
+      <span class="guide-card-time">⏱ ${g.minutes} min read</span>
+      <span class="guide-card-arrow">Read guide →</span>
+    </div>
+  `;
+  return card;
+}
+let activeDiff = 'all';
+let searchQ = '';
+function render() {
+  const grid = document.getElementById('guidesGrid');
+  const empty = document.getElementById('guideEmpty');
+  const count = document.getElementById('guideCount');
+  grid.innerHTML = '';
+  const q = searchQ.toLowerCase().trim();
+  const filtered = GUIDES.filter(g => {
+    const diffMatch = activeDiff === 'all' || g.difficulty === activeDiff;
+    if (!diffMatch) return false;
+    if (!q) return true;
+    return g.title.toLowerCase().includes(q) || g.description.toLowerCase().includes(q);
+  });
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    count.textContent = '';
+  } else {
+    empty.style.display = 'none';
+    count.textContent = `Showing ${filtered.length} guide${filtered.length !== 1 ? 's' : ''}`;
+    filtered.forEach(g => grid.appendChild(buildGuideCard(g)));
+  }
+}
+document.getElementById('guideSearch').addEventListener('input', e => { searchQ = e.target.value; render(); });
+document.querySelectorAll('.pill[data-diff]').forEach(p => {
+  p.addEventListener('click', () => {
+    activeDiff = p.dataset.diff;
+    document.querySelectorAll('.pill[data-diff]').forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    render();
+  });
+});
+render();
+document.getElementById('guideCount').textContent = `${GUIDES.length} guides available`;
+</script>
+</body>
+</html>
