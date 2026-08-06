@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PivotTables — ExcelEdge</title>
+  <meta name="description" content="Learn how to create and use PivotTables in Excel to summarize and analyze large datasets quickly."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a3a5c, #2d6ea8);" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+      </div>
+      <h1>PivotTables</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-intermediate">Intermediate</span>
+        <span class="guide-meta-time">⏱ 8 min read</span>
+      </div>
+      <p>Master PivotTables to effortlessly summarize, analyze, explore, and present your data without writing complex formulas.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">A PivotTable is a powerful tool to calculate, summarize, and analyze data that lets you see comparisons, patterns, and trends in your data. It saves you from writing complex summary formulas by doing all the heavy lifting automatically.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Ensure your data is in a flat, tabular format.</li>
+            <li>No merged cells, and no blank rows or columns.</li>
+            <li>Make sure you have clear headers in the first row of your data.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Prepare your data</div>
+              <div class="step-desc">
+                Data must be in a flat table with no merged cells, no blank rows/columns, and headers in row 1. Pro tip: convert to an Excel Table first (<kbd>Ctrl</kbd>+<kbd>T</kbd>) so the PivotTable auto-expands when data is added.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Insert the PivotTable</div>
+              <div class="step-desc">
+                <strong>Click anywhere</strong> in your data, then go to <span class="menu-path">Insert → PivotTable → From Table/Range</span>. Choose 'New Worksheet' for a clean workspace.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Understand the Field List</div>
+              <div class="step-desc">
+                The right-side panel has 4 drop zones: <strong>Filters</strong> (top-level slicer), <strong>Columns</strong> (horizontal categories), <strong>Rows</strong> (vertical categories), and <strong>Values</strong> (numbers to aggregate). Drag field names into these zones.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Add your first fields</div>
+              <div class="step-desc">
+                <strong>Drag</strong> a category field (like Region or Product) to Rows, then drag a numeric field (like Sales) to Values. Excel sums by default.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Change the aggregation</div>
+              <div class="step-desc">
+                <strong>Click</strong> the Values field dropdown → <span class="menu-path">Value Field Settings</span>. Change Sum to Count, Average, Max, Min, etc. Also set number formatting here.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Group data</div>
+              <div class="step-desc">
+                <strong>Right-click</strong> a date field in Rows and choose <strong>Group</strong> to group by Month, Quarter, Year. Right-click numbers to group into ranges.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Filter and sort</div>
+              <div class="step-desc">
+                Use the dropdown arrows on Row/Column labels to filter. <strong>Drag</strong> a field to the Filters zone for a top-level filter. Use <span class="menu-path">Insert → Slicer</span> for visual filter buttons.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Refresh your data</div>
+              <div class="step-desc">
+                When source data changes, <strong>right-click</strong> anywhere in the PivotTable → <strong>Refresh</strong>. Or use <span class="menu-path">Data → Refresh All</span> to refresh all PivotTables at once.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Use Excel Tables</strong>
+            Convert source data to an Excel Table (<kbd>Ctrl</kbd>+<kbd>T</kbd>) BEFORE creating the PivotTable — it auto-expands when new data is added.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Use Slicers</strong>
+            Use Slicers (<span class="menu-path">Insert → Slicer</span>) instead of dropdown filters for a modern dashboard look.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Show Values As</strong>
+            Right-click → <span class="menu-path">Show Values As → % of Grand Total</span> to show percentages instead of raw numbers.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>PivotCharts</strong>
+            Use PivotCharts (<span class="menu-path">Insert → PivotChart</span>) to visualize your PivotTable dynamically.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Drill Down</strong>
+            Double-click any value cell in a PivotTable to drill down and see the underlying rows on a new sheet.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Merged Cells</div>
+            <div class="mistake-desc">Merged cells in source data break the PivotTable creation.</div>
+            <div class="mistake-fix">Unmerge all cells before creating.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Blank Rows/Columns</div>
+            <div class="mistake-desc">PivotTable stops capturing data at the first blank row/column.</div>
+            <div class="mistake-fix">Ensure data is contiguous.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Numbers as Text</div>
+            <div class="mistake-desc">Numbers stored as text will count instead of sum correctly.</div>
+            <div class="mistake-fix">Select column → <span class="menu-path">Data → Text to Columns → Finish</span> to convert.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Forgetting to Refresh</div>
+            <div class="mistake-desc">Not refreshing after data changes leads to stale results.</div>
+            <div class="mistake-fix">Right-click → <strong>Refresh</strong>, or enable auto-refresh on file open.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Mixed Data Types</div>
+            <div class="mistake-desc">Putting multiple data types in one column can cause incorrect grouping or sorting.</div>
+            <div class="mistake-fix">Keep each column a single data type (e.g. all dates, all numbers).</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Insert PivotTable</span>
+              <span class="quick-ref-value"><span class="menu-path">Insert → PivotTable → From Table/Range</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Refresh</span>
+              <span class="quick-ref-value">Right-click → Refresh (or <kbd>Alt</kbd>+<kbd>F5</kbd>)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Refresh All</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Refresh All</span> (or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F5</kbd>)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Group dates</span>
+              <span class="quick-ref-value">Right-click date → Group</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Show as %</span>
+              <span class="quick-ref-value"><span class="menu-path">Value Field Settings → Show Values As</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Add Slicer</span>
+              <span class="quick-ref-value"><span class="menu-path">Insert → Slicer</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Expand/Collapse</span>
+              <span class="quick-ref-value">Click +/- buttons on row labels</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="conditional-formatting.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📈</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Charts &amp; Graphs</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="charts.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📈</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Charts</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="dynamic-arrays.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">⚡</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Dynamic Arrays</span>
+              <span class="related-card-diff">Intermediate · 7 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
