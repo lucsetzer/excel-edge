@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What-If Analysis — ExcelEdge</title>
+  <meta name="description" content="Explore how changes to inputs affect your results using What-If Analysis tools in Excel: Goal Seek, Data Tables, and Scenario Manager."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #3a1a5c, #8a40c0);" aria-hidden="true">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+      </div>
+      <h1>What-If Analysis</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-advanced">Advanced</span>
+        <span class="guide-meta-time">⏱ 8 min read</span>
+      </div>
+      <p>Explore how changes to inputs affect your results — without manually editing cells. Excel has 3 tools: Goal Seek, Data Tables, and Scenario Manager.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">What-If Analysis lets you explore how changes to inputs affect your results — without manually editing cells. Excel has 3 tools: Goal Seek (work backwards from a target), Data Tables (test multiple inputs at once), and Scenario Manager (compare named sets of assumptions).</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>A basic financial or mathematical model set up with formulas linking dependent inputs and outputs.</li>
+            <li>Familiarity with absolute references to lock formula cells correctly.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        
+        <h3>Goal Seek</h3>
+        <ol class="steps-list" aria-label="Goal Seek Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Set up a formula</div>
+              <div class="step-desc">
+                You need a formula whose result you want to hit a specific target. E.g., a loan payment formula <code style="font-family:var(--font-mono);color:var(--accent-light);">=PMT(B1/12, B2, B3)</code> in cell B4.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Run Goal Seek</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Data → What-If Analysis → Goal Seek</span>. Set Cell: your result cell (B4). To Value: the target result (e.g., -1500). By Changing Cell: the input to adjust (e.g., B3 = loan amount). Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Read the result</div>
+              <div class="step-desc">
+                Excel iterates to find the input value that produces your target. The changing cell updates with the solution. Click OK to keep or Cancel to revert.
+              </div>
+            </div>
+          </li>
+        </ol>
+        <h3>Data Tables</h3>
+        <ol class="steps-list" aria-label="Data Table Steps" start="4">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">One-variable data table</div>
+              <div class="step-desc">
+                Set up a column of input values (e.g., interest rates from 3% to 8%). In the row above the first input (one column to the right), reference your formula. Select the input column + formula cell. Go to <span class="menu-path">Data → What-If Analysis → Data Table</span>. Row input cell: blank. Column input cell: the original input cell. Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Two-variable data table</div>
+              <div class="step-desc">
+                Set up a row of one input (e.g., loan terms) and a column of another (e.g., interest rates). Put the formula at their intersection. Select the whole block. <span class="menu-path">Data → What-If Analysis → Data Table</span>. Row input: cell for row values. Column input: cell for column values.
+              </div>
+            </div>
+          </li>
+        </ol>
+        <h3>Scenario Manager</h3>
+        <ol class="steps-list" aria-label="Scenario Manager Steps" start="6">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Create scenarios</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Data → What-If Analysis → Scenario Manager → Add</span>. Name the scenario (e.g., 'Best Case'), choose the changing cells (the assumptions that vary). Enter values for each cell.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Add more scenarios</div>
+              <div class="step-desc">
+                Click <strong>Add</strong> again: 'Base Case', 'Worst Case', etc. Each scenario stores its own set of input values.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">View and compare</div>
+              <div class="step-desc">
+                Select a scenario → <strong>Show</strong> to see its results in your model. Click <strong>Summary</strong> to generate a Scenario Summary table comparing all scenarios side by side.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Multiple Variables? Use Solver</strong>
+            Goal Seek only works with a single changing cell — for multiple variables use Solver.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Data Table Array Formulas</strong>
+            Data Tables create array formulas — you can't edit individual cells; delete all results and rebuild if you need changes.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Presenting to Clients</strong>
+            Use Scenario Manager for client presentations — create Best/Base/Worst cases and show the summary table.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Protect Your Scenarios</strong>
+            Protect the Scenario Manager: <span class="menu-path">Tools → Protection → Protect Workbook → Scenarios</span> to prevent others from editing your scenarios.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Always Save Before Goal Seek</strong>
+            Save your model BEFORE running Goal Seek in case you want to revert easily.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Goal Seek can't find a solution</div>
+            <div class="mistake-desc">The target is mathematically impossible given the formulas.</div>
+            <div class="mistake-fix">Fix: check formula logic and widen the target bounds.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Data table returns all zeros</div>
+            <div class="mistake-desc">Formula not referencing the correct input cell.</div>
+            <div class="mistake-fix">Fix: ensure the formula uses the exact cell specified in the dialog.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Scenario Manager shows #REF</div>
+            <div class="mistake-desc">Changing cells were deleted or moved.</div>
+            <div class="mistake-fix">Fix: edit the scenario and re-select the correct cells.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Goal Seek</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → What-If Analysis → Goal Seek</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Data Table</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → What-If Analysis → Data Table</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Scenario Manager</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → What-If Analysis → Scenario Manager</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Scenario Summary</span>
+              <span class="quick-ref-value"><span class="menu-path">Scenario Manager → Summary</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Multiple variables solver</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Solver</span> (requires add-in)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="solver.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🧮</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Solver</span>
+              <span class="related-card-diff">Advanced · 8 min</span>
+            </div>
+          </a>
+          <a href="charts.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📈</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Charts</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="pivot-tables.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📊</span>
+            <div class="related-card-text">
+              <span class="related-card-name">PivotTables</span>
+              <span class="related-card-diff">Intermediate · 8 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
