@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditional Formatting — ExcelEdge</title>
+  <meta name="description" content="Learn how to visually highlight your data automatically with Conditional Formatting in Excel."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a4a2e, #2d8a50);" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </div>
+      <h1>Conditional Formatting</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-beginner">Beginner</span>
+        <span class="guide-meta-time">⏱ 5 min read</span>
+      </div>
+      <p>Highlight important data automatically and instantly spot trends using Conditional Formatting rules.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Conditional Formatting allows you to change the appearance of cells automatically based on their values. It is essential for building dashboards, identifying errors, and calling attention to outliers in your data sets quickly.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Have a dataset with values you want to visually separate or analyze.</li>
+            <li>Understand absolute vs relative references if you plan to use custom formula rules.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Select your range</div>
+              <div class="step-desc">
+                <strong>Select</strong> the cells you want to format. You can select a single column, a row, or a multi-column range.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Open Conditional Formatting</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Home → Conditional Formatting</span>. You'll see a menu with several rule types.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Highlight Cell Rules</div>
+              <div class="step-desc">
+                Choose <span class="menu-path">Highlight Cells Rules</span> for basic conditions: Greater Than, Less Than, Between, Equal To, Duplicate Values, etc. Pick a condition, enter the value, choose a color style.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Top/Bottom Rules</div>
+              <div class="step-desc">
+                Use <span class="menu-path">Top/Bottom Rules</span> to highlight the top 10 items, bottom 10%, or above/below average automatically.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Data Bars</div>
+              <div class="step-desc">
+                Choose <span class="menu-path">Data Bars</span> to add colored bars inside each cell proportional to the value — great for quick comparison without a chart.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Color Scales</div>
+              <div class="step-desc">
+                Choose <span class="menu-path">Color Scales</span> to apply a gradient (e.g., red-yellow-green) across a range based on value magnitude.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Icon Sets</div>
+              <div class="step-desc">
+                Choose <span class="menu-path">Icon Sets</span> to display traffic lights, arrows, stars, or flags based on value thresholds.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Use a formula for custom rules</div>
+              <div class="step-desc">
+                Choose <span class="menu-path">New Rule → Use a formula</span>. Enter a formula like <code style="font-family:var(--font-mono);color:var(--accent-light);">=$B2>100</code> to highlight entire rows based on a condition. CRITICAL: use $ on the column (<code style="font-family:var(--font-mono);color:var(--accent-light);">=$B2</code>) but NOT the row (not <code style="font-family:var(--font-mono);color:var(--accent-light);">=$B$2</code>) so it applies row by row.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Manage rules</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Home → Conditional Formatting → Manage Rules</span> to see all rules, change priority order, or delete rules. Rules higher in the list take priority.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Row Highlighting</strong>
+            To highlight entire rows based on one column's value, lock the column with $ in your formula: <code style="font-family:var(--font-mono);color:var(--accent-light);">=$C2="Complete"</code>
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Stop If True</strong>
+            Use 'Stop If True' in Manage Rules to prevent lower-priority rules from overriding if a previous condition is met.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Heatmaps</strong>
+            Apply color scales to heatmaps — select a table of numbers, apply a red-white-green color scale for instant analysis.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Selective Icons</strong>
+            Use icon sets with 'No Cell Icon' for some thresholds to selectively show icons only for outliers or important milestones.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Missing $ in Formulas</div>
+            <div class="mistake-desc">Missing $ on column in row-highlight formulas means only the first cell gets formatted correctly.</div>
+            <div class="mistake-fix">Use <code style="font-family:var(--font-mono);color:var(--accent-light);">=$A2</code> instead of <code style="font-family:var(--font-mono);color:var(--accent-light);">=A2</code>.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Conflicting Rules</div>
+            <div class="mistake-desc">Conflicting rules with no priority order yield unexpected colors.</div>
+            <div class="mistake-fix">Use Manage Rules to set the correct order and optionally check "Stop If True".</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Applying to Large Ranges</div>
+            <div class="mistake-desc">Applying Conditional Formatting to entire columns (like A:A) slows down the workbook.</div>
+            <div class="mistake-fix">Apply only to your specific data range.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Overusing Absolute References</div>
+            <div class="mistake-desc">Using absolute reference <code style="font-family:var(--font-mono);color:var(--accent-light);">=$A$2</code> in formulas means the formula doesn't adapt as it evaluates down rows.</div>
+            <div class="mistake-fix">Use mixed reference <code style="font-family:var(--font-mono);color:var(--accent-light);">=$A2</code>.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Open</span>
+              <span class="quick-ref-value"><span class="menu-path">Home → Conditional Formatting</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">New formula rule</span>
+              <span class="quick-ref-value"><span class="menu-path">→ New Rule → Use a formula</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Manage/delete rules</span>
+              <span class="quick-ref-value"><span class="menu-path">→ Manage Rules</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Clear all rules</span>
+              <span class="quick-ref-value"><span class="menu-path">→ Clear Rules → Clear Rules from Selected Cells</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Row highlight formula</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=$C2="Done"</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Highlight duplicates</span>
+              <span class="quick-ref-value"><span class="menu-path">→ Highlight Cells Rules → Duplicate Values</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="data-validation.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">✅</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Data Validation</span>
+              <span class="related-card-diff">Beginner · 5 min</span>
+            </div>
+          </a>
+          <a href="charts.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📈</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Charts</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="named-ranges.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🏷️</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Named Ranges</span>
+              <span class="related-card-diff">Intermediate · 5 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
