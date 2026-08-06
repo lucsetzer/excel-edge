@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macros &amp; Basic VBA — ExcelEdge</title>
+  <meta name="description" content="Learn how to record macros and use basic VBA to automate tasks in Excel."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #3a1a1a, #a04040);" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      </div>
+      <h1>Macros &amp; Basic VBA</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-advanced">Advanced</span>
+        <span class="guide-meta-time">⏱ 10 min read</span>
+      </div>
+      <p>Automate repetitive tasks with one click using macros and introductory Visual Basic for Applications (VBA).</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Macros let you record a sequence of actions and replay them with one click — perfect for repetitive formatting, data cleaning, or report generation. VBA (Visual Basic for Applications) is the programming language behind macros, and knowing the basics unlocks powerful automation.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>You need to enable the Developer tab. Go to <span class="menu-path">File → Options → Customize Ribbon</span> → check <strong>Developer</strong> → OK.</li>
+            <li>On Mac: <span class="menu-path">Excel → Preferences → Ribbon &amp; Toolbar</span> → check Developer.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Record a macro</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Developer → Record Macro</span> (or View → Macros → Record Macro). Give it a name (no spaces), assign an optional shortcut key (e.g., Ctrl+Shift+F), and choose where to store it (This Workbook for this file only, Personal Macro Workbook to use in any workbook). Click OK — recording begins.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Perform your actions</div>
+              <div class="step-desc">
+                Do the steps you want to automate: format cells, apply filters, copy/paste, sort data. Keep it focused — every action is recorded.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Stop recording</div>
+              <div class="step-desc">
+                Click <span class="menu-path">Developer → Stop Recording</span> (or the Stop button in the status bar). Your macro is saved.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Run the macro</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Developer → Macros</span> → select your macro → Run. Or use the keyboard shortcut you assigned.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">View the VBA code</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Developer → Visual Basic</span> (or Alt+F11 on Windows, Option+Fn+F11 on Mac). In the Project Explorer, open Modules → Module1. You'll see the VBA code Excel generated.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Edit the macro</div>
+              <div class="step-desc">
+                You can modify the code directly. Common edits: change a hardcoded range to a dynamic one, add a loop, change a color value. Key concepts include Sub (procedure), Range("A1"), Cells(row,col), ActiveSheet, and Selection.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Add a button to run the macro</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Insert → Shapes</span>, draw a shape, right-click → Assign Macro → select your macro. Now clicking the shape runs the macro.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Write a simple VBA sub</div>
+              <div class="step-desc">
+                In the VBA editor, click <span class="menu-path">Insert → Module</span>, then type:
+<pre><code style="font-family:var(--font-mono);color:var(--accent-light);">Sub FormatHeaders()
+    Range("A1:E1").Font.Bold = True
+    Range("A1:E1").Interior.Color = RGB(33, 163, 102)
+    Range("A1:E1").Font.Color = RGB(255, 255, 255)
+End Sub</code></pre>
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Macro security settings</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">File → Options → Trust Center → Trust Center Settings → Macro Settings</span>. Use 'Disable all macros with notification' — Excel will ask before running. Never use 'Enable all macros'.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Relative References</strong><br/>
+            Use relative references when recording (<span class="menu-path">Developer → Use Relative References</span>) so the macro works on any selected range, not just the recorded one.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Global Macros</strong><br/>
+            Store frequently-used macros in the Personal Macro Workbook so they're available in every Excel file you open.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Dynamic Coding</strong><br/>
+            Record a basic version, then hand-edit the VBA to make it dynamic (replace fixed ranges with variables). Add <code>MsgBox "Done!"</code> at the end to confirm completion. Use <strong>F8</strong> in the VBA editor to step through code line by line for debugging.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Absolute cell references</div>
+            <div class="mistake-desc">Macro only works on specific recorded cells.</div>
+            <div class="mistake-fix">Fix: enable 'Use Relative References' before recording, or edit the VBA.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Macro not visible</div>
+            <div class="mistake-desc">Stored in the wrong workbook.</div>
+            <div class="mistake-fix">Fix: check the Store In setting; use Personal Macro Workbook for always-available macros.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Macros lost</div>
+            <div class="mistake-desc">File saved without macro support.</div>
+            <div class="mistake-fix">Fix: always save as .xlsm (Excel Macro-Enabled Workbook) not .xlsx.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Running an unknown macro</div>
+            <div class="mistake-desc">Security risk from running code off the internet.</div>
+            <div class="mistake-fix">Fix: only run macros from trusted sources and keep 'Disable with notification' checked.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Enable Developer tab</span>
+              <span class="quick-ref-value"><span class="menu-path">File → Options → Customize Ribbon → Developer</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Record</span>
+              <span class="quick-ref-value"><span class="menu-path">Developer → Record Macro</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Stop recording</span>
+              <span class="quick-ref-value"><span class="menu-path">Developer → Stop Recording</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Run macro</span>
+              <span class="quick-ref-value"><span class="menu-path">Developer → Macros → Run</span> (or assigned shortcut)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">VBA editor</span>
+              <span class="quick-ref-value"><span class="menu-path">Developer → Visual Basic</span> (Alt+F11 / Option+Fn+F11 Mac)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Relative recording</span>
+              <span class="quick-ref-value"><span class="menu-path">Developer → Use Relative References</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Save with macros</span>
+              <span class="quick-ref-value"><span class="menu-path">File → Save As → .xlsm format</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Macro security</span>
+              <span class="quick-ref-value"><span class="menu-path">File → Options → Trust Center → Macro Settings</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="power-query.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🔄</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Power Query</span>
+              <span class="related-card-diff">Advanced · 10 min</span>
+            </div>
+          </a>
+          <a href="solver.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🧮</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Solver</span>
+              <span class="related-card-diff">Advanced · 8 min</span>
+            </div>
+          </a>
+          <a href="protect-sheets.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🔒</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Protecting Sheets</span>
+              <span class="related-card-diff">Beginner · 4 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
