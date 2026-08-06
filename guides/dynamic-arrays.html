@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Arrays — ExcelEdge</title>
+  <meta name="description" content="Learn how to use dynamic arrays in Excel to spill formulas, filter, sort, and sequence data automatically."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a4a3a, #2aaa70);" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+      </div>
+      <h1>Dynamic Arrays</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-intermediate">Intermediate</span>
+        <span class="guide-meta-time">⏱ 7 min read</span>
+      </div>
+      <p>Master dynamic array functions like FILTER, SORT, and UNIQUE that automatically spill results across cells.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Dynamic array formulas (available in Microsoft 365 and Excel 2021+) can return multiple results that automatically 'spill' into neighboring cells. Functions like FILTER, SORT, UNIQUE, SEQUENCE, SORTBY, and RANDARRAY replace many complex older approaches.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>You need Microsoft 365, Excel 2021, or Excel for the web.</li>
+            <li>Neighboring cells must be empty for results to spill properly.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Understand spill behavior</div>
+              <div class="step-desc">
+                When a dynamic array formula returns multiple values, they automatically fill (spill) into adjacent cells. You only enter the formula once, in the top-left cell. Neighboring cells must be empty or you'll get a #SPILL! error.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">UNIQUE</div>
+              <div class="step-desc">
+                Returns a list of unique values from a range. <code style="font-family:var(--font-mono);color:var(--accent-light);">=UNIQUE(A2:A100)</code> returns one of each value. <code style="font-family:var(--font-mono);color:var(--accent-light);">=UNIQUE(A2:A100,,TRUE)</code> returns values that appear exactly once.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">SORT</div>
+              <div class="step-desc">
+                Returns a sorted copy of a range. <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(A2:B20)</code> sorts by first column A-Z. <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(A2:B20, 2, -1)</code> sorts by 2nd column descending (-1=descending, 1=ascending).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">SORTBY</div>
+              <div class="step-desc">
+                Sorts a range by one or more other ranges (not part of the sorted data). <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORTBY(A2:B20, C2:C20, -1)</code> sorts A:B by the values in column C descending.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">FILTER</div>
+              <div class="step-desc">
+                Returns rows that match a condition. <code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, B2:B20="East")</code> returns only rows where column B is 'East'. <code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, B2:B20="East", "No results")</code> adds a fallback.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">FILTER with multiple conditions</div>
+              <div class="step-desc">
+                Use * for AND: <code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, (B2:B20="East")*(C2:C20>100))</code> — returns rows where B=East AND C>100. Use + for OR: <code style="font-family:var(--font-mono);color:var(--accent-light);">(B2:B20="East")+(B2:B20="West")</code>.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">SEQUENCE</div>
+              <div class="step-desc">
+                Generates a list of sequential numbers. <code style="font-family:var(--font-mono);color:var(--accent-light);">=SEQUENCE(10)</code> gives 1-10. <code style="font-family:var(--font-mono);color:var(--accent-light);">=SEQUENCE(5,3)</code> gives a 5-row by 3-column grid. <code style="font-family:var(--font-mono);color:var(--accent-light);">=SEQUENCE(12,1,DATE(2025,1,1),30)</code> gives 12 monthly dates.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">RANDARRAY</div>
+              <div class="step-desc">
+                Generates random numbers. <code style="font-family:var(--font-mono);color:var(--accent-light);">=RANDARRAY(10)</code> gives 10 random decimals. <code style="font-family:var(--font-mono);color:var(--accent-light);">=RANDARRAY(5,3,1,100,TRUE)</code> gives a 5×3 grid of random integers between 1 and 100.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Reference the spill range</div>
+              <div class="step-desc">
+                Use the <strong>#</strong> operator to reference all spilled results: if your UNIQUE formula is in E2, use <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(E2#)</code> to sort all its spilled results. This is a spill range reference.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">10</div>
+            <div class="step-content">
+              <div class="step-title">Combine functions</div>
+              <div class="step-desc">
+                Nest them: <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(UNIQUE(A2:A100))</code> to get a sorted unique list. <code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, ISNUMBER(MATCH(B2:B20, E2#, 0)))</code> to filter using a dynamic list.
+              </div>
+            </div>
+          </li>
+        </ol>
+        <h3 style="margin-top:2rem;">Function Comparison</h3>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; margin-top:1rem; text-align:left;">
+            <thead>
+              <tr style="border-bottom:2px solid #444;">
+                <th style="padding:0.5rem;">Function</th>
+                <th style="padding:0.5rem;">What it does</th>
+                <th style="padding:0.5rem;">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">UNIQUE</td>
+                <td style="padding:0.5rem;">Deduplicate a list</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=UNIQUE(A2:A100)</code></td>
+              </tr>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">SORT</td>
+                <td style="padding:0.5rem;">Sort a range</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(A2:B20, 2, -1)</code></td>
+              </tr>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">SORTBY</td>
+                <td style="padding:0.5rem;">Sort by external column</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SORTBY(A2:B20, C2:C20)</code></td>
+              </tr>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">FILTER</td>
+                <td style="padding:0.5rem;">Filter rows by condition</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A:C, B:B>100)</code></td>
+              </tr>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">SEQUENCE</td>
+                <td style="padding:0.5rem;">Generate number series</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SEQUENCE(10)</code></td>
+              </tr>
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:0.5rem;">RANDARRAY</td>
+                <td style="padding:0.5rem;">Random number array</td>
+                <td style="padding:0.5rem;"><code style="font-family:var(--font-mono);color:var(--accent-light);">=RANDARRAY(10,1,1,100,TRUE)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Dropdown Validation</strong><br/>
+            Use UNIQUE+SORT to build auto-updating dropdown list sources for data validation.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Replace Complex Formulas</strong><br/>
+            Use FILTER to replace messy helper columns and complicated VLOOKUP or INDEX/MATCH array combinations.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Chaining and Counting</strong><br/>
+            The # spill operator makes dynamic arrays chainable, like <code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(UNIQUE(A2:A100))</code>. Use <code style="font-family:var(--font-mono);color:var(--accent-light);">=COUNTA(E2#)</code> to count how many results a spill formula returned.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Avoid #CALC! Errors</strong><br/>
+            FILTER with no match returns #CALC! — always add the 3rd argument (fallback value) to handle empty results gracefully.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">#SPILL! error</div>
+            <div class="mistake-desc">Cells in the spill range are occupied.</div>
+            <div class="mistake-fix">Fix: clear all cells in the expected spill range.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">#CALC! error</div>
+            <div class="mistake-desc">FILTER found no matches and you didn't provide a fallback.</div>
+            <div class="mistake-fix">Fix: add 3rd argument: <code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A:C, B:B>100, "No results")</code>.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Formula not available</div>
+            <div class="mistake-desc">You are using Excel 2019 or older, which doesn't support these functions.</div>
+            <div class="mistake-fix">Fix: use XLOOKUP or legacy Ctrl+Shift+Enter array formulas as alternatives.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Editing spilled cells</div>
+            <div class="mistake-desc">You can't edit non-anchor spill cells (they are grayed out or show errors when edited).</div>
+            <div class="mistake-fix">Fix: edit only the top-left anchor cell containing the formula.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Unique list</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=UNIQUE(A2:A100)</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Unique sorted</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(UNIQUE(A2:A100))</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Sort descending</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(A2:B20, 1, -1)</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Filter one condition</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, B2:B20>100, "None")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Filter AND</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, (B2:B20="X")*(C2:C20>0), "None")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Filter OR</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=FILTER(A2:C20, (B2:B20="X")+(B2:B20="Y"), "None")</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Number sequence</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SEQUENCE(10)</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Spill reference</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=SORT(E2#)</code></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="vlookup-vs-xlookup.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🔍</span>
+            <div class="related-card-text">
+              <span class="related-card-name">VLOOKUP vs XLOOKUP</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="named-ranges.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🏷️</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Named Ranges</span>
+              <span class="related-card-diff">Intermediate · 5 min</span>
+            </div>
+          </a>
+          <a href="pivot-tables.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📊</span>
+            <div class="related-card-text">
+              <span class="related-card-name">PivotTables</span>
+              <span class="related-card-diff">Intermediate · 8 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
