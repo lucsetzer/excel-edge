@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protecting Sheets & Workbooks — ExcelEdge</title>
+  <meta name="description" content="Learn how to lock cells, protect worksheets, and secure the workbook structure in Excel."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #1a2a4a, #2a5a9a);" aria-hidden="true">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      </div>
+      <h1>Protecting Sheets & Workbooks</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-beginner">Beginner</span>
+        <span class="guide-meta-time">⏱ 4 min read</span>
+      </div>
+      <p>Lock cells so others can't accidentally change your formulas, while still allowing them to enter data in designated input cells.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Protection in Excel lets you lock cells so others can't accidentally (or intentionally) change your formulas, while still allowing them to enter data in designated input cells. You can protect at the cell level, sheet level, or entire workbook structure level.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Know which cells users should be allowed to edit vs which cells should be locked.</li>
+            <li>Understand that Excel's sheet protection is for preventing accidents, not for high-level security against malicious actors.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Unlock input cells first (CRITICAL)</div>
+              <div class="step-desc">
+                By default, ALL cells are 'locked'. Before protecting, you must <strong>UNLOCK</strong> the cells you <strong>WANT</strong> users to edit. Select the input cells → press <strong>Ctrl+1</strong> (⌘+1 Mac) → Protection tab → uncheck 'Locked'. Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Protect the sheet</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Review → Protect Sheet</span>. Enter an optional password (write it down — Excel cannot recover lost passwords). Under 'Allow all users to do:', check what to permit (selecting cells, formatting, etc.). Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Test the protection</div>
+              <div class="step-desc">
+                Try clicking a locked formula cell. You should see a 'cell is protected' message. Try clicking an unlocked input cell — you should be able to type.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Unprotect the sheet</div>
+              <div class="step-desc">
+                <span class="menu-path">Review → Unprotect Sheet</span>. Enter the password if set. The sheet is now fully editable again.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Protect workbook structure</div>
+              <div class="step-desc">
+                <span class="menu-path">Review → Protect Workbook</span> → check 'Structure'. This prevents adding, deleting, moving, or renaming sheets. Does NOT lock cell contents — combine with sheet protection for full security.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Hide formulas</div>
+              <div class="step-desc">
+                To prevent users from seeing your formula logic: select formula cells → Ctrl+1 → Protection → check 'Hidden'. Then protect the sheet. The formula bar will be blank when those cells are selected.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Allow specific ranges with passwords</div>
+              <div class="step-desc">
+                <span class="menu-path">Review → Allow Users to Edit Ranges</span>. Create named ranges with individual passwords so different users can edit different areas with their own passwords.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-danger">
+          <span class="callout-icon" aria-hidden="true">🚨</span>
+          <div class="callout-body">
+            <strong>Unlock First!</strong>
+            Always unlock your input cells BEFORE protecting — this is the most commonly skipped step.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Multi-user Workbooks</strong>
+            Use 'Allow users to edit ranges' for multi-user workbooks where different people edit different sections.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Protect Dashboards</strong>
+            Workbook structure protection prevents sheet tab manipulation — good for dashboard files.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Backup Before Passwords</strong>
+            Save a backup BEFORE setting a password — there's no official way to recover a forgotten Excel password.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>'Hidden' Protection</strong>
+            'Hidden' cell protection hides formula bar content but NOT the cell value itself.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Protecting without unlocking input cells</div>
+            <div class="mistake-desc">No one can enter data.</div>
+            <div class="mistake-fix">Fix: unprotect, select inputs, unlock, re-protect.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Forgetting the password</div>
+            <div class="mistake-desc">The sheet is locked permanently.</div>
+            <div class="mistake-fix">Fix: save an unprotected backup before adding passwords.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Workbook protection ≠ cell protection</div>
+            <div class="mistake-desc">Protecting workbook structure doesn't lock cell content.</div>
+            <div class="mistake-fix">Fix: use both sheet and workbook structure protection.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Sharing a password-protected file via email</div>
+            <div class="mistake-desc">Worksheet password offers minimal real security (tools exist to bypass it).</div>
+            <div class="mistake-fix">Fix: use proper file-level encryption for sensitive data.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Unlock cells</span>
+              <span class="quick-ref-value">Select cells → Ctrl+1 / ⌘+1 → Protection → uncheck Locked</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Protect sheet</span>
+              <span class="quick-ref-value"><span class="menu-path">Review → Protect Sheet</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Unprotect sheet</span>
+              <span class="quick-ref-value"><span class="menu-path">Review → Unprotect Sheet</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Protect workbook structure</span>
+              <span class="quick-ref-value"><span class="menu-path">Review → Protect Workbook</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Hide formulas</span>
+              <span class="quick-ref-value">Select cells → Ctrl+1 → Protection → check Hidden (then protect sheet)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Allow ranges</span>
+              <span class="quick-ref-value"><span class="menu-path">Review → Allow Users to Edit Ranges</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="data-validation.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">✅</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Data Validation</span>
+              <span class="related-card-diff">Beginner · 5 min</span>
+            </div>
+          </a>
+          <a href="macros.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🤖</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Macros & VBA</span>
+              <span class="related-card-diff">Advanced · 10 min</span>
+            </div>
+          </a>
+          <a href="what-if-analysis.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🎯</span>
+            <div class="related-card-text">
+              <span class="related-card-name">What-If Analysis</span>
+              <span class="related-card-diff">Advanced · 8 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
