@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Named Ranges — ExcelEdge</title>
+  <meta name="description" content="Learn how to use Named Ranges in Excel to make formulas readable, portable, and less prone to breaking."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #2a3a1a, #5a8a30);" aria-hidden="true">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"></path></svg>
+      </div>
+      <h1>Named Ranges</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-intermediate">Intermediate</span>
+        <span class="guide-meta-time">⏱ 5 min read</span>
+      </div>
+      <p>Give meaningful names to cells or ranges, making formulas readable, portable, and less prone to breaking when rows/columns are added.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Instead of writing <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, $D$1:$F$500, 2, FALSE)</code> you can write <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, ProductTable, 2, FALSE)</code>. Named ranges let you give meaningful names to cells or ranges, making formulas readable, portable, and less prone to breaking when rows/columns are added.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Basic understanding of absolute vs. relative cell references (like $A$1 vs A1)</li>
+            <li>Familiarity with writing basic Excel formulas</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Name a range using the Name Box</div>
+              <div class="step-desc">
+                <strong>Select a range</strong>, click the Name Box (the box showing the cell address, left of the formula bar), <strong>type a name</strong> (no spaces — use underscores: Tax_Rate), <strong>press Enter</strong>. Done.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Name a range using Define Name</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Formulas → Define Name</span>. Enter the name, an optional comment, choose the scope (Workbook or a specific sheet), and set the range reference. Click OK.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">Understand naming rules</div>
+              <div class="step-desc">
+                Names must start with a letter or underscore. No spaces (use Tax_Rate not Tax Rate). Not a cell address (A1, B2 are invalid). Max 255 characters. Case-insensitive.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Use named ranges in formulas</div>
+              <div class="step-desc">
+                Type the name directly in a formula: <code style="font-family:var(--font-mono);color:var(--accent-light);">=SUM(MonthlySales)</code> or <code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, ProductList, 2, FALSE)</code>. Excel auto-suggests names as you type.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Name a single cell (for constants)</div>
+              <div class="step-desc">
+                <strong>Select a cell</strong>, name it: Tax_Rate. Enter 0.08 in the cell. Now use <code style="font-family:var(--font-mono);color:var(--accent-light);">=Price * Tax_Rate</code> in formulas instead of <code style="font-family:var(--font-mono);color:var(--accent-light);">=Price * $B$2</code>.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Create names from selection</div>
+              <div class="step-desc">
+                Select a range with headers, go to <span class="menu-path">Formulas → Create from Selection</span>. Excel uses the top row / left column headers as names automatically — great for bulk-naming.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Manage and edit names</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Formulas → Name Manager</span> (Ctrl+F3 on Windows, Ctrl+Fn+F3 on Mac). Edit the reference, change the name, or delete unused names. Names with errors show in red.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Use names as Data Validation source</div>
+              <div class="step-desc">
+                When creating a dropdown list (<span class="menu-path">Data → Data Validation</span>), type <code style="font-family:var(--font-mono);color:var(--accent-light);">=ProductList</code> in the Source box instead of a range reference. The list auto-expands when you add to the named range.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Dynamic named ranges</div>
+              <div class="step-desc">
+                Use a formula in the reference: <code style="font-family:var(--font-mono);color:var(--accent-light);">=OFFSET(Sheet1!$A$2, 0, 0, COUNTA(Sheet1!$A:$A)-1, 1)</code> to create a range that automatically expands as data grows. Or simply use an Excel Table — Table columns are auto-named.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Use Excel Tables Instead</strong>
+            Use Excel Tables (Ctrl+T) instead of manual named ranges — Table columns are auto-named as TableName[ColumnName] and auto-expand.
+          </div>
+        </div>
+        
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Self-Documenting Formulas</strong>
+            Name your constants (tax rate, discount %) so formulas are self-documenting.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Scope Matters</strong>
+            Use workbook-scope names for ranges used across multiple sheets.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Clean Up Errors</strong>
+            In the Name Manager, names shown in red have broken references — fix or delete them.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Quick Paste Name</strong>
+            Pressing F3 (Fn+F3 on Mac) in a formula opens the Paste Name dialog to quickly insert a name.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Spaces in names</div>
+            <div class="mistake-desc">Leads to a syntax error.</div>
+            <div class="mistake-fix">Fix: use underscores (Monthly_Sales not Monthly Sales).</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Name scope conflict</div>
+            <div class="mistake-desc">Same name on multiple sheets causes confusion.</div>
+            <div class="mistake-fix">Fix: use Workbook scope for shared ranges.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Named range doesn't expand</div>
+            <div class="mistake-desc">You used a fixed range reference.</div>
+            <div class="mistake-fix">Fix: use a Table or dynamic OFFSET formula.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Deleting rows inside a named range</div>
+            <div class="mistake-desc">The reference shrinks unintentionally.</div>
+            <div class="mistake-fix">Fix: use a Table or OFFSET formula.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Quick name</span>
+              <span class="quick-ref-value">Select range → click Name Box → type name → Enter</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Define Name</span>
+              <span class="quick-ref-value"><span class="menu-path">Formulas → Define Name</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Name Manager</span>
+              <span class="quick-ref-value"><span class="menu-path">Formulas → Name Manager</span> (Ctrl+F3 / Ctrl+Fn+F3 Mac)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Create from selection</span>
+              <span class="quick-ref-value"><span class="menu-path">Formulas → Create from Selection</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Paste a name into formula</span>
+              <span class="quick-ref-value">F3 (Fn+F3 Mac)</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">In VLOOKUP</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=VLOOKUP(A2, ProductList, 2, FALSE)</code></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">In Validation</span>
+              <span class="quick-ref-value"><code style="font-family:var(--font-mono);color:var(--accent-light);">=ProductList</code></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="vlookup-vs-xlookup.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🔍</span>
+            <div class="related-card-text">
+              <span class="related-card-name">VLOOKUP vs XLOOKUP</span>
+              <span class="related-card-diff">Beginner · 6 min</span>
+            </div>
+          </a>
+          <a href="data-validation.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">✅</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Data Validation</span>
+              <span class="related-card-diff">Beginner · 5 min</span>
+            </div>
+          </a>
+          <a href="dynamic-arrays.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">⚡</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Dynamic Arrays</span>
+              <span class="related-card-diff">Intermediate · 7 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
