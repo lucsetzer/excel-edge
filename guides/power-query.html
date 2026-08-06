@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Power Query — ExcelEdge</title>
+  <meta name="description" content="Learn how to import and clean data automatically using Power Query in Excel."/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <link rel="stylesheet" href="../css/guide.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="page-hero">
+    <div class="container">
+      <div class="hero-icon" style="background: linear-gradient(135deg, #2a1a5c, #6a3fa0);" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"></path></svg>
+      </div>
+      <h1>Power Query</h1>
+      <div class="guide-meta">
+        <span class="guide-meta-badge category-badge badge-advanced">Advanced</span>
+        <span class="guide-meta-time">⏱ 10 min read</span>
+      </div>
+      <p>Automate your data import and transformation workflow without writing formulas.</p>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="guide-body">
+      <!-- SECTION 1: What & Why -->
+      <section class="guide-section" aria-labelledby="what-why">
+        <h2 class="guide-section-title" id="what-why">
+          <span class="section-icon icon-green" aria-hidden="true">💡</span>
+          What It Is &amp; Why It Matters
+        </h2>
+        <p class="guide-intro">Power Query (called 'Get & Transform' in Excel) lets you import data from dozens of sources (CSV, web, databases, other workbooks) and clean/transform it automatically — without writing formulas. Every transformation is recorded as a step you can edit or replay.</p>
+      </section>
+      <!-- SECTION 2: Before You Start -->
+      <section class="guide-section" aria-labelledby="before-start">
+        <h2 class="guide-section-title" id="before-start">
+          <span class="section-icon icon-blue" aria-hidden="true">📋</span>
+          Before You Start
+        </h2>
+        <div class="prereq-box">
+          <ul>
+            <li>Power Query is available in Excel 2016+.</li>
+            <li>On Mac, some features are limited — most import/transform steps work, but some connectors (SQL Server, SharePoint) may require Windows.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION 3: Step-by-Step -->
+      <section class="guide-section" aria-labelledby="steps">
+        <h2 class="guide-section-title" id="steps">
+          <span class="section-icon icon-green" aria-hidden="true">🚀</span>
+          Step-by-Step
+        </h2>
+        <ol class="steps-list" aria-label="Steps">
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <div class="step-title">Open Power Query</div>
+              <div class="step-desc">
+                Go to <span class="menu-path">Data → Get Data</span> → choose your source: From File (CSV, Excel, JSON), From Web (URL), From Database, or other sources. For a CSV: <span class="menu-path">Data → Get Data → From File → From Text/CSV</span>.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <div class="step-title">Preview and load</div>
+              <div class="step-desc">
+                Power Query shows a preview. Check that data looks correct, then click <strong>Transform Data</strong> (to clean first) or Load (to import as-is).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <div class="step-title">The Power Query Editor</div>
+              <div class="step-desc">
+                The editor has a ribbon at top, your data preview in the center, and a 'Query Settings' panel on the right showing Applied Steps — every change you make is recorded here.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <div class="step-title">Remove unnecessary columns</div>
+              <div class="step-desc">
+                Select columns to keep (Ctrl+click), then right-click → <strong>Remove Other Columns</strong>. Or right-click unwanted columns → Remove.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <div class="step-title">Rename columns</div>
+              <div class="step-desc">
+                <strong>Double-click</strong> a column header to rename it. Use clear, consistent names.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">6</div>
+            <div class="step-content">
+              <div class="step-title">Change data types</div>
+              <div class="step-desc">
+                Click the data type icon in the column header (ABC for text, 123 for number, calendar for date). Setting the correct type is critical — dates stored as text won't work in formulas.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">7</div>
+            <div class="step-content">
+              <div class="step-title">Filter rows</div>
+              <div class="step-desc">
+                Click the dropdown arrow in a column header to filter out unwanted values (blanks, errors, specific text).
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">8</div>
+            <div class="step-content">
+              <div class="step-title">Split, merge, or transform text</div>
+              <div class="step-desc">
+                Use the Transform tab: Split Column (by delimiter or character count), Merge Columns, Extract (first N chars, text before/after delimiter), Trim/Clean.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">9</div>
+            <div class="step-content">
+              <div class="step-title">Group and summarize</div>
+              <div class="step-desc">
+                <span class="menu-path">Transform → Group By</span> to aggregate: sum sales by region, count orders by category, etc. This replaces complex SUMIFS formulas.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">10</div>
+            <div class="step-content">
+              <div class="step-title">Close & Load</div>
+              <div class="step-desc">
+                When done, click <span class="menu-path">Home → Close & Load → Close & Load To...</span> Choose Table in a new or existing sheet, or add to the Data Model.
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-number" aria-hidden="true">11</div>
+            <div class="step-content">
+              <div class="step-title">Refresh the query</div>
+              <div class="step-desc">
+                When source data updates, go to <span class="menu-path">Data → Refresh All</span> (or right-click the query table → Refresh). All transformations re-apply automatically.
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <!-- SECTION 4: Pro Tips -->
+      <section class="guide-section" aria-labelledby="pro-tips">
+        <h2 class="guide-section-title" id="pro-tips">
+          <span class="section-icon icon-yellow" aria-hidden="true">⭐</span>
+          Pro Tips
+        </h2>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Rename Steps</strong>
+            Rename your Applied Steps to describe what each step does — makes the query maintainable.
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon" aria-hidden="true">ℹ️</span>
+          <div class="callout-body">
+            <strong>Append vs Merge</strong>
+            Use Append Queries (<span class="menu-path">Home → Append Queries</span>) to stack multiple files/sheets into one table. Use Merge Queries (<span class="menu-path">Home → Merge Queries</span>) for a VLOOKUP-style join between two tables.
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          <span class="callout-icon" aria-hidden="true">⚠️</span>
+          <div class="callout-body">
+            <strong>Undo Steps</strong>
+            Right-click an Applied Step → Delete to undo a specific transformation without losing the others.
+          </div>
+        </div>
+        <div class="callout callout-tip">
+          <span class="callout-icon" aria-hidden="true">💡</span>
+          <div class="callout-body">
+            <strong>Clean Once, Refresh Forever</strong>
+            Use Power Query to clean a messy CSV once, then just Refresh to re-run all cleaning automatically on new data.
+          </div>
+        </div>
+      </section>
+      <!-- SECTION 5: Common Mistakes -->
+      <section class="guide-section" aria-labelledby="mistakes">
+        <h2 class="guide-section-title" id="mistakes">
+          <span class="section-icon icon-red" aria-hidden="true">⚠️</span>
+          Common Mistakes
+        </h2>
+        <ul class="mistakes-list" aria-label="Common mistakes">
+          <li class="mistake-item">
+            <div class="mistake-label">Skipping data type assignment</div>
+            <div class="mistake-desc">Dates/numbers are treated as text and break formulas downstream.</div>
+            <div class="mistake-fix">Fix: always set types in step 6.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Hardcoding a file path</div>
+            <div class="mistake-desc">Query breaks when file moves to a new folder.</div>
+            <div class="mistake-fix">Fix: use a parameter for the file path.</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Too many Applied Steps</div>
+            <div class="mistake-desc">The query becomes slow to evaluate.</div>
+            <div class="mistake-fix">Fix: combine similar steps (e.g., multiple filter steps into one).</div>
+          </li>
+          <li class="mistake-item">
+            <div class="mistake-label">Loading to wrong location</div>
+            <div class="mistake-desc">Table lands on wrong sheet or creates unnecessary data duplicates.</div>
+            <div class="mistake-fix">Fix: use Close & Load To... to specify the exact destination.</div>
+          </li>
+        </ul>
+      </section>
+      <!-- SECTION 6: Quick Reference -->
+      <section class="guide-section" aria-labelledby="quick-ref">
+        <h2 class="guide-section-title" id="quick-ref">
+          <span class="section-icon icon-purple" aria-hidden="true">📌</span>
+          Quick Reference
+        </h2>
+        <div class="quick-ref">
+          <div class="quick-ref-title">Cheat Sheet</div>
+          <div class="quick-ref-body">
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Open</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Get Data → [source]</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Editor</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Get Data → Launch Power Query Editor</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Change type</span>
+              <span class="quick-ref-value">Click type icon in column header</span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Group By</span>
+              <span class="quick-ref-value"><span class="menu-path">Transform → Group By</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Append (stack)</span>
+              <span class="quick-ref-value"><span class="menu-path">Home → Append Queries</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Merge (join)</span>
+              <span class="quick-ref-value"><span class="menu-path">Home → Merge Queries</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Refresh all</span>
+              <span class="quick-ref-value"><span class="menu-path">Data → Refresh All</span></span>
+            </div>
+            <div class="quick-ref-row">
+              <span class="quick-ref-label">Refresh one</span>
+              <span class="quick-ref-value">Right-click table → Refresh</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Related Guides -->
+      <div class="related-guides">
+        <div class="related-guides-title">Related Guides</div>
+        <div class="related-grid">
+          <a href="named-ranges.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🏷️</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Named Ranges</span>
+              <span class="related-card-diff">Intermediate · 5 min</span>
+            </div>
+          </a>
+          <a href="pivot-tables.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">📊</span>
+            <div class="related-card-text">
+              <span class="related-card-name">PivotTables</span>
+              <span class="related-card-diff">Intermediate · 8 min</span>
+            </div>
+          </a>
+          <a href="macros.html" class="related-card">
+            <span class="related-card-emoji" aria-hidden="true">🤖</span>
+            <div class="related-card-text">
+              <span class="related-card-name">Macros & VBA</span>
+              <span class="related-card-diff">Advanced · 10 min</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>ExcelEdge — <a href="../how-to.html">Back to How-To Guides</a> · <a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+</div>
+<script src="../js/nav.js"></script>
+</body>
+</html>
