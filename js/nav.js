@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: 'formulas.html',      label: 'Formula Lookup',   icon: 'ƒx' },
   { href: 'errors.html',        label: 'Error Lookup',     icon: '⚠' },
   { href: 'mac-shortcuts.html', label: 'Mac Shortcuts',    icon: '⌨', badge: 'Mac' },
+  { href: 'how-to.html',        label: 'How-to Guide',     icon: '' },
 ];
 
 function buildNav() {
